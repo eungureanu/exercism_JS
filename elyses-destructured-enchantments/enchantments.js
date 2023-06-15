@@ -50,7 +50,8 @@ export function swapTopTwoCards(deck) {
  * deck and a new deck containing all the other cards
  */
 export function discardTopCard(deck) {
-  
+  const [getFirstCard, ...everythingElse] = deck;
+  return [getFirstCard, everythingElse];
 }
 
 /** @type Card[] **/
@@ -65,5 +66,7 @@ const FACE_CARDS = ['jack', 'queen', 'king'];
  * third, and fourth cards are the face cards
  */
 export function insertFaceCards(deck) {
-  throw new Error('Implement the insertFaceCards function');
+  const [getFirstCard, ...everythingElse] = deck;
+  deck = [getFirstCard, ...FACE_CARDS, ...everythingElse];
+  return deck;
 }
